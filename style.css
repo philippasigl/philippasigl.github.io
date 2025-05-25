@@ -1,0 +1,909 @@
+/*Basic settings #243a33 #4a5759 #ffd6ba*/
+@import url('fonts.css');
+:root {
+    /* Farben */
+    --color-standard: #333;
+    --color-primary: #555b6e;
+    --color-primary-medium: #89b0ae;
+    --color-primary-light: #bee3db; 
+    --color-secondary: #ffd6ba;
+    --color-secondary-light: #f1daca; /* Hellerer Sekundärton für bessere Lesbarkeit */
+    --color-accent: #89b0ae;
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-background-light: #f8f8f8;
+    --color-background-medium: #faf9f9;
+    --color-background-dark: #333;
+    --color-border: #d1d1d1;
+
+    /* Schriftarten */
+    --font-family-body: 'inter', sans-serif;
+    --font-family-heading: 'melodrama-bold', sans-serif; /* Melodrama für Überschriften */
+    --font-family-hero: 'melodrama-bold', sans-serif; /* Melodrama für Hero-Überschriften */
+
+    /* Abstände */
+    --spacing-xs: 5px;
+    --spacing-s: 10px;
+    --spacing-m: 20px;
+    --spacing-l: 40px;
+    --spacing-xl: 60px;
+
+    /* Schriftgrößen (optional, kann auch direkt gesetzt werden) */
+    --font-size-base: 1em;
+    --font-size-baseL: 2em;
+    --font-size-h1: 2.5em; /* Oder responsive mit clamp() */
+    --font-size-h2: 4.5em;
+}
+
+/* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: var(--font-family-body);
+            line-height: 1.6;
+            color: var(--color-standard);
+            background-color: var(--color-background-medium);
+        }
+
+        h1, h2, h3, h5, h6 {
+            font-family: var(--font-family-heading);
+            font-size: var(--font-size-h2);
+            line-height: 1.2;
+            color: var(--color-primary);
+            text-align: center; 
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 5px white, /* Text shadow for better visibility */
+            2px 2px 10px white;
+        }
+
+        h4 {
+            font-family: var(--font-family-heading);
+            font-size: var(--font-size-baseL);
+            line-height: 1.2;
+            color: var(--color-primary);
+            text-align: center; 
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 5px white, /* Text shadow for better visibility */
+            2px 2px 10px white;
+        }
+
+
+        a {
+            color: var(--color-primary-medium);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        br {
+            display: block; /* Macht das <br> wie ein Block-Element */
+           /* margin-bottom: 0.5em; /* Fügt Abstand nach dem Zeilenumbruch hinzu */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 20px;
+        }
+
+        /* Header & Navigation */
+        .hero-header {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full screen height */
+            background: url('images/Philippa Sigl-Glöckner cut2.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end; /* Align content to the right */
+            padding-left: 20px; /* Add padding to move content away from the edge */
+            color: white;
+            text-align: left; /* Align text to the left */
+            line-height: 1.2; /* Adjust line height for better readability */
+        }
+        
+        .hero-header h1 {
+            font-family: var(--font-family-hero);
+            font-size: clamp(2.5rem, 4vw, 8rem) !important; /* Scales between 2rem and 6rem based on screen size */
+            letter-spacing: 4px;
+            margin: 0;
+            color: white;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        
+        .hero-header h2 {
+            font-family: var(--font-family-hero);
+            font-size: clamp(2rem, 3vw, 4rem) !important; /* Scales between 1.5rem and 4rem */
+            letter-spacing: 4px;
+            margin: 10px 0 0;
+            color: white;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+        }
+
+        .hero-header.dynamic-adjust {
+            align-items: center; /* Center-align dynamically if needed */
+            padding-left: 100px; /* Add more padding to move content to the right */
+        }
+
+        @media (min-width: 768px) {
+            .hero-header {
+            display: flex; /* Use flexbox for horizontal layout */
+            flex-direction: row; /* Align items in a row */
+            align-items: center; /* Vertically center the content */
+            justify-content: center; /* Center the content horizontally */
+            text-align: left; /* Align text to the left */
+            padding: 20px;
+            gap: 40px;
+            }
+
+            .hero-image {
+                flex-shrink: 0; /* Prevent the image from shrinking */
+                max-width: 50%; /* Limit the image width */
+            }
+
+            .hero-overlay {
+                position: absolute; /* Position text relative to .hero-header */
+                left: 55%; /*ensure its next to the face*/
+                right: 80px; /* Align text to the right side of the screen */
+                top: 60%; /* Vertically center the text */
+                transform: translateY(-50%); /* Adjust for perfect vertical centering */
+                text-align: left;
+                /*margin-left: 20px; Add space between the image and text */
+            }
+
+            .hero-header h1 {
+                margin: 0;
+                text-align: center;
+            }
+
+            .hero-header h2 {
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        
+        /*
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        */
+        .header-content {
+            display: flex;
+            flex-direction: column; /* Stack on small screens */
+            align-items: center;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 2.5em;
+            white-space: normal; /* allow line breaks */
+        }
+
+        .header-content h1 span {
+            font-size: 0.6em;
+            display: block; /* Ökonomin on new line */
+            color: #666;
+            font-family: var(--font-family-heading);
+            font-weight: 400;
+        }
+
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between menu items */
+        }
+
+        nav ul li a {
+            font-weight: 400;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Navigation menu for large screens */
+        @media (min-width: 768px) {
+
+            .container {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .header-nav {
+                position: absolute; /* Position relative to the nearest positioned ancestor */
+                top: 20px; /* Distance from the top of the screen */
+                right: 80px; /* Distance from the right of the screen */
+            }
+
+            nav ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                gap: 15px; /* Space between menu items */
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+                color: white;
+                text-decoration: none;
+                font-weight: 400;
+                transition: color 0.3s ease;
+            }
+
+            nav ul li a:hover {
+                color: var(--color-primary); /* Highlight color on hover */
+            }
+        }
+
+        /*Navigation menu for small screens */
+        @media (max-width: 768px) {
+            .header-nav {
+                position: absolute;
+                top: 80%;
+                transform: translateY(-50%); /* Adjust for perfect vertical centering */
+                gap: 10px; /* Space between items */
+            }
+
+            nav ul li a {
+                font-size: 1.3rem; /* Adjust font size for mobile */
+                padding: 10px 20px; /* Add padding for touch targets */
+            }
+        }
+        /* Hero Section */
+        .hero {
+            background-color: #e2e2e2;
+            text-align: center;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .hero-image img {
+            max-width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            object-fit: cover; /* Ensures image covers area without distortion */
+            width: 100%; /* Make image responsive */
+            height: auto;
+        }
+
+        .hero-text h2 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .hero-text p {
+            font-size: 1.3em;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        .btn {
+            padding: 5px 20px;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            text-decoration: none;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: grey;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 20px 20px 20px 20px;
+            position: relative; 
+        }
+
+        section#ueber-mich::after,
+        section#dataviz::after {
+            content: ''; /* Create the line */
+            position: absolute;
+            bottom: -20px; /* Position the line at the bottom of the section */
+            left: 20px; /* Add space from the left */
+            right: 20px; /* Add space from the right */
+            height: 1px; /* Line thickness */
+            background-color: var(--color-border); /* Line color */
+        }
+    
+        .section-title {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-size: 4em;
+            color: var(--color-primary);
+        }
+
+        /* Book Section */
+        .book-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            /*background-color: var(--color-background-medium);*/
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .book-details {
+            width: 100%; /* Make the text span the full width */
+            text-align: left;
+            padding-left: 0;
+        }
+
+        .book-promo {
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* Space between image and quotes */
+            align-items: stretch;
+            gap: 5%;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            padding-left: 0;
+        }
+
+        .book-cover {
+            flex: 0 0 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book-cover img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .book-quotes {
+            max-width: 55%; /* Limit the width of the quotes */
+            text-align: left;
+        }
+
+        .quote {
+            font-style: italic;
+        }
+
+        .book-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0 0;
+            gap: 42px;
+            margin-top: 40px;
+            width: fit-content;
+            max-width: 100%;
+        }
+
+        .award {
+            font-size: var(--font-size-baseL);
+            font-weight: 600;
+            text-align: center;
+            margin: 0 0 0 0;
+        }
+
+        .book-description {
+            display: flex;
+            justify-content: space-between;
+            align-items: top;
+            gap: 5%;
+            flex-wrap: wrap;
+            padding-left: 0;
+        }
+
+        .book-description-text {
+            max-width: 35%;
+            padding-top: 0px;
+        }
+
+        .book-illustration {
+            flex: 0 0 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: top;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+            text-align: right;
+        }
+
+        .book-illustration img {
+            max-width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .book-illustration-author {
+            margin-top: 10px; /* Add spacing above the attribution */
+            color: var(--color-standard); /* Use the standard text color */
+            text-align: right; /* Align the text to the right */
+        }
+
+        /* Podcast Section */
+        
+        .podcast-content {
+            display: flex;
+            justify-content: space-between; /* Space between image and quotes */
+            align-items: center;
+            gap: 5%;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            padding-left: 0;
+            position: relative;
+            border: 1px solid var(--color-border); /* Thin border using your border color variable */
+            border-radius: 8px; /* Optional: Add rounded corners */
+            padding: 20px 10px 20px 10px; /* Add padding inside the frame */
+        }
+
+        .podcast-details {
+            flex: 1;
+            max-width: 55%; /* Limit the width of the quotes */
+            text-align: left;
+            
+        }
+
+        .podcast-cover {
+            flex: 0 0 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .podcast-cover img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        
+        .podcast-details .section-title {
+            text-align: left;
+        }
+
+        /*.podcast-button {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }*/
+
+        .podcast-button {
+            position: absolute;
+            right: 10px; /* Abstand vom rechten Rand */
+            bottom: 26px; 
+            display: inline-block; /* Stellt sicher, dass der Button korrekt angezeigt wird */
+            padding: 10px 20px;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .media-list a {
+            color: var(--color-primary-medium);
+            text-decoration: none;
+        }
+        
+        .Kontakt h3 {
+            color: var(--color-text-light);
+            line-height: 1.2;
+            
+        }
+        /*
+        .podcast-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .podcast-cover img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .podcast-details {
+            text-align: center;
+            max-width: 700px;
+        }
+
+        .podcast-details h3 {
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .podcast-details .podcast-logo {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+                */
+        /* About Me Section */
+        .about-container {
+            position: relative; /* Enable positioning for child elements */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+           /* width: 100%; /* Ensure the container spans the full width */
+            /*max-height: 800px; /* Set a fixed height for the section */
+        }
+        
+        .about-image {
+            flex: 1;
+            max-width: 50%; /* Stretch the image to cover the full width */
+            display: flex;
+            justify-content: center; /* Center the image */
+            align-items: center;
+            /*overflow: hidden;/*
+            object-fit: cover; /* Ensure the image maintains its aspect ratio */
+            z-index: 1; /* Place the image behind the text */
+            
+        }
+
+        .about-image img {
+            max-height: 500px; /* Maintain the aspect ratio */
+            object-fit: cover; /* Ensure the image covers the container */
+            object-position: center; /* Center the image */
+            transform: none; /* Remove the zoom effect */
+            background-color: var(--color-background-medium);
+            
+        }
+        
+        .about-text {
+            flex: 1;
+            max-width: 50%;
+            text-align: left; /* Center-align the text */
+            /*background-color: rgba(0, 0, 0, 0.2); */ /* Optional: Add a semi-transparent background for better readability */
+            padding: 20px; /* Add padding around the text */
+            border-radius: 8px; /* Optional: Add rounded corners to the text background */
+        }
+    
+
+        .about-text ul li {
+            margin-bottom: 10px; /* Add space below each list item */
+        }
+
+        /* Grid layout for images */
+        .dataviz-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
+            gap: 20px; /* Space between images */
+            margin-top: 20px;
+        }
+
+        .hover-overlay {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            background-color: white; /* Set the background color to white */
+            border-radius: 8px; /* Optional: Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better appearance */
+        }
+
+        .hover-overlay img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the container */
+            transition: transform 0.3s ease; /* Smooth zoom effect */
+        }
+
+        .hover-overlay .overlay {
+            position: absolute;
+            flex-direction: column;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent black overlay */
+            color: var(--color-standard);
+            display: flex;
+            /*justify-content: center;*/
+            align-items: left;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease; /* Smooth fade-in effect */
+            text-align: left;
+            font-size: 1em;
+            padding: 20px;
+            box-sizing: border-box; /* Include padding in width/height calculations */
+            overflow: hidden; /* Prevent text from overflowing the box */
+            word-wrap: break-word; /* Break long words to fit within the box */
+        }
+
+        .hover-overlay:hover img {
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        .hover-overlay:hover .overlay {
+            opacity: 1; /* Show the overlay on hover */
+        }
+
+        .hover-overlay .overlay h3, .hover-overlay .overlay p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        #media .section-title {
+            text-align: left;
+        }
+
+        /*
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .media-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .media-list li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        */
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        footer nav ul {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer nav ul li a {
+            color: #fff;
+            font-weight: 400;
+        }
+
+        footer nav ul li a:hover {
+            color: var(--color-accent);
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1em;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .header-content h1 {
+                text-align: left;
+                font-size: 3em;
+            }
+
+            .header-content h1 span {
+                display: inline; /* Keep Ökonomin on same line for larger screens */
+                font-size: 0.6em; /* Adjust relative size */
+                margin-left: 10px; /* Space from name */
+            }
+
+            nav ul {
+                margin-top: 0;
+            }
+
+            .hero {
+                flex-direction: row;
+                text-align: left;
+                justify-content: center;
+            }
+
+            .hero-image {
+                flex-shrink: 0; /* Prevent image from shrinking */
+            }
+
+            .hero-text {
+                padding-left: 40px;
+            }
+
+            .book-details, .podcast-details {
+                text-align: left;
+            }
+
+            #ueber-mich h2 {
+                text-align: left;
+            }
+
+            .about-grid {
+                grid-template-columns: 2fr 1fr; /* Two columns for about section */
+            }
+
+            .media-list {
+                grid-column: span 2; /* Span full width below text and image */
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .hero-header {
+                flex-direction: column; /* Stack image and text vertically */
+                /*justify-content: center; /* Center content vertically */
+                /*align-items: center;*/
+                padding-left: 0; /* Remove left padding */
+                text-align: center; /* Center text */
+                
+            }
+
+            .hero-overlay {
+                position: absolute;
+                max-width: 90%; /* Allow text to take more space */
+                margin-left: 0; /* Remove left margin */
+                top: 60%;
+                transform: translateY(-50%); /* Adjust for perfect vertical centering */
+            }
+
+
+                #media .section-title {
+                    word-wrap:break-word;
+                    text-align: center;
+                }
+
+                .book-details, .book-promo, .book-description, .podcast-content, .about-grid {
+                    flex-direction: column; /* Stack items vertically*/
+                    align-items: center; /* Center items */
+                    margin-top: var(--spacing-m);
+                } 
+
+                .book-promo, .podcast-content {
+                    gap: 20px; /* Increase gap for better spacing */
+                }
+
+                .book-description-text, .podcast-details, .podcast-cover {
+                    max-width: 100%; /* Allow quotes to take full width */
+                    text-align: left; /* Center text */
+                }
+            
+                .book-quotes {
+                    max-width: 100%; /* Allow quotes to take full width */
+                    text-align: left; /* Center text */
+                }
+
+                .book-cover img {
+                    max-height: 400px; /* Ensure the book cover image is responsive */
+                }
+
+                .book-illustration img {
+                    max-width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                }
+
+                .podcast-content {
+                    display: flex;
+                    flex-direction: column; /* Stapelt die Elemente vertikal */
+                    align-items: center;
+                    padding-bottom: 80px;
+                }
+            
+                .podcast-details {
+                    order: 1; /* Text kommt zuerst */
+                }
+            
+                .podcast-cover {
+                    order: 2; /* Bild kommt danach */
+                }
+
+                .podcast-button {
+                    order: 3; /* Text kommt zuerst */
+                    margin-top: 20px;
+                    align-self: center;
+                }
+
+                .about-container {
+                    display: flex;
+                    flex-direction: column; /* Stack image and text vertically */
+                    /*align-items: center; /* Center items horizontally */
+                    /*max-height: none; /* Allow the container to grow */
+                    position: relative;
+                    align-items: center;
+                }
+
+                .about-image img {
+                    max-height: 400px;
+                }
+
+                .about-text {
+                    position: relative; /* Reset positioning for stacking */
+                    top: auto;
+                    left: auto;
+                    transform: none;
+                    /*transform: translateY(-50%); /* Adjust for perfect vertical centering */
+                    max-width: 100%; /* Allow the text to take up most of the screen width */
+                    margin-top: 20px; /* Add spacing above the text */
+                    color: var(--color-standard);
+                    /*background-color: rgba(0, 0, 0, 0.5); */
+                    padding: 0px;
+                    text-align: left; /* Center-align the text for better readability */
+                   
+                }
+                .dataviz-grid {
+                    grid-template-columns: 1fr; /* Eine Spalte für gestapelte Bilder */
+                    gap: 20px; /* Abstand zwischen den gestapelten Bildern */
+                }
+            
+                .hover-overlay {
+                    width: 100%; /* Bilder nehmen die volle Breite ein */
+                }
+            
+                .hover-overlay img {
+                    height: auto; /* Behalte das Seitenverhältnis der Bilder bei */
+                }
+        }
