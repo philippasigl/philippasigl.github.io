@@ -144,7 +144,7 @@
                 mediaItem.className = 'media-item';
 
                 // Try to load the image, fallback to medium name if not found
-                const imgFile = `images/${(article.Medium || 'placeholder').trim()}.png`;
+                const imgFile = `images/${(article.Medium || 'placeholder').trim().toLowerCase()}.png`;
                 const img = new Image();
                 img.className = 'media-image';
                 img.alt = 'Artikelbild';
