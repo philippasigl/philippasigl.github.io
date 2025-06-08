@@ -235,7 +235,17 @@
 
         // Starte den Prozess, wenn das Dokument geladen ist
         // document.addEventListener('DOMContentLoaded', fetchAndDisplayEvents); // DIESE ZEILE BLEIBT AUSKOMMENTIERT
-        fetchAndDisplayEvents(); // DIESE ZEILE MUSS AKTIV SEIN UND DIE FUNKTION DIREKT AUFRUFEN!
+        //fetchAndDisplayEvents(); // DIESE ZEILE MUSS AKTIV SEIN UND DIE FUNKTION DIREKT AUFRUFEN!
+        
+        function resizeParentIframe() {
+            window.parent.postMessage(
+                { eventWidgetHeight: document.body.scrollHeight },
+                '*'
+            );
+        }
+
+        // Nach dem Rendern der Events aufrufen:
+        fetchAndDisplayEvents().then(resizeParentIframe);
     </script>
 </body>
 </html>

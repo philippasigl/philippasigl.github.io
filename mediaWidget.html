@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medien-Widget</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'inter', sans-serif;
+            margin: 0;
+            background-color: transparent;
+            color: #333;
+            line-height: 1.6;
+        }
+        .media-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+        }
+        .media-item {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 0 20px 0;
+            transition: transform 0.2s ease-in-out;
+        }
+        .media-item:hover {
+            transform: translateY(-3px);
+        }
+        .media-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .media-image-fallback {
+            font-size: 1.1em;
+            border-radius: 12px 12px 0 0;
+            background-color: none;
+        }
+        .media-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin: 16px 16px 8px 16px;
+            text-align: center;
+        }
+        .media-meta {
+            font-size: 0.95em;
+            color: #555;
+            margin: 0 16px 8px 16px;
+            text-align: center;
+        }
+        .media-link {
+            display: inline-block;
+            background-color: var(--color-primary-light, #e0f0f2);
+            color: var(--color-primary, #00707a);
+            padding: 8px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .media-link:hover {
+            background-color: #6a7e80;
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            .media-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .loading-message, .error-message {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="media-container" id="mediaContainer">
+        <p class="loading-message">Artikel werden geladen...</p>
+    </div>
+
+    <script>
+        // Replace this with your own published Google Sheet CSV link
+        const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTpXkzOVawCgDFxxwcbH7CZyObD9s6WuGUsaHy9EjQxqmlcVPU2Zr6Uk3yoHcDmG_qmDE7iaSdNA6sO/pub?gid=0&single=true&output=csv';
+
+        async function fetchAndDisplayMedia() {
+            const container = document.getElementById('mediaContainer');
+            container.innerHTML = '<p class="loading-message">Artikel werden geladen...</p>';
+
+            try {
+                const response = await fetch(GOOGLE_SHEET_CSV_URL);
+                if (!response.ok) throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+                const csvText = await response.text();
+
+                const articles = parseCSV(csvText);
+
+                renderMedia(articles);
+            } catch (error) {
+                console.error('Fehler beim Laden oder Parsen der Artikel:', error);
+                container.innerHTML = '<p class="error-message">Artikel konnten nicht geladen werden. Bitte versuche es später erneut.</p>';
+            }
+        }
+
+        function parseCSV(csv) {
+            const lines = csv.split('\n').filter(line => line.trim() !== '');
+            if (lines.length === 0) return [];
+            const headers = lines[0].split(',').map(header => header.trim().replace(/^"|"$/g, ''));
+            const data = lines.slice(1).map(line => {
+                const values = line.split(',').map(value => value.trim().replace(/^"|"$/g, ''));
+                let obj = {};
+                headers.forEach((header, index) => {
+                    obj[header] = values[index] || '';
+                });
+                return obj;
+            });
+            return data;
+        }
+
+        function renderMedia(articles) {
+            const container = document.getElementById('mediaContainer');
+            container.innerHTML = '';
+
+            if (articles.length === 0) {
+                container.innerHTML = '<p class="loading-message">Keine Artikel gefunden.</p>';
+                return;
+            }
+
+            articles.forEach(article => {
+                const mediaItem = document.createElement('div');
+                mediaItem.className = 'media-item';
+
+                // Try to load the image, fallback to medium name if not found
+                const imgFile = `images/${(article.Medium || 'placeholder').trim()}.png`;
+                const img = new Image();
+                img.className = 'media-image';
+                img.alt = 'Artikelbild';
+                img.src = imgFile;
+
+                img.onerror = function() {
+                    const fallbackDiv = document.createElement('div');
+                    fallbackDiv.className = 'media-image-fallback';
+                    fallbackDiv.style.display = 'flex';
+                    fallbackDiv.style.alignItems = 'center';
+                    fallbackDiv.style.justifyContent = 'center';
+                    fallbackDiv.style.height = '160px';
+                    fallbackDiv.style.color = '#555';
+                    fallbackDiv.style.fontWeight = 'bold';
+                    fallbackDiv.textContent = article.Medium || 'Medium';
+                    img.replaceWith(fallbackDiv);
+                };
+
+                mediaItem.appendChild(img);
+
+                // Title
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'media-title';
+                titleDiv.textContent = article.Titel || '';
+                mediaItem.appendChild(titleDiv);
+
+                // Meta
+                const metaDiv = document.createElement('div');
+                metaDiv.className = 'media-meta';
+                metaDiv.textContent = (article.Medium || '') + (article.Datum ? ' · ' + article.Datum : '');
+                mediaItem.appendChild(metaDiv);
+
+                // Link
+                if (article.Link) {
+                    const linkA = document.createElement('a');
+                    linkA.href = article.Link;
+                    linkA.className = 'media-link';
+                    linkA.target = '_blank';
+                    linkA.textContent = 'Lesen';
+                    mediaItem.appendChild(linkA);
+                }
+
+                container.appendChild(mediaItem);
+            });
+        }
+    
+
+        fetchAndDisplayMedia();
+    </script>
+</body>
+</html>

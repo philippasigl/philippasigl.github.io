@@ -30,7 +30,7 @@
 
     /* Schriftgrößen (optional, kann auch direkt gesetzt werden) */
     --font-size-base: 1em;
-    --font-size-baseL: 2em;
+    --font-size-baseL: 1.5em;
     --font-size-h1: 2.5em; /* Oder responsive mit clamp() */
     --font-size-h2: 4.5em;
 }
@@ -88,7 +88,6 @@
             margin: 0 auto;
             padding-left: 10px;
             padding-right: 10px;
-            padding-top: 20px;
         }
 
         /* Header & Navigation */
@@ -324,15 +323,15 @@
 
         /* Section Styling */
         section {
-            padding: 20px 20px 20px 20px;
+            padding: 40px 20px 40px 20px;
             position: relative; 
         }
 
-        section#ueber-mich::after,
-        section#dataviz::after {
+        section#buch::after, section#podcast::after, section#ueber-mich::after, section#termine::after,
+        section#dataviz::after, section#medien::after {
             content: ''; /* Create the line */
             position: absolute;
-            bottom: -20px; /* Position the line at the bottom of the section */
+            bottom: 0px; /* Position the line at the bottom of the section */
             left: 20px; /* Add space from the left */
             right: 20px; /* Add space from the right */
             height: 1px; /* Line thickness */
@@ -342,7 +341,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 10px;
-            margin-top: 10px;
+            margin-top: 0px;
             font-size: 4em;
             color: var(--color-primary);
         }
@@ -466,7 +465,7 @@
             flex-wrap: wrap; /* Allow wrapping for smaller screens */
             padding-left: 0;
             position: relative;
-            border: 1px solid var(--color-border); /* Thin border using your border color variable */
+            /*border: 1px solid var(--color-border); /* Thin border using your border color variable */
             border-radius: 8px; /* Optional: Add rounded corners */
             padding: 20px 10px 20px 10px; /* Add padding inside the frame */
         }
@@ -568,6 +567,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
+            padding: 20px 0 20px 0;
            /* width: 100%; /* Ensure the container spans the full width */
             /*max-height: 800px; /* Set a fixed height for the section */
         }
@@ -613,6 +613,7 @@
             grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
             gap: 20px; /* Space between images */
             margin-top: 20px;
+            padding: 20px 0 20px 0;
         }
 
         .hover-overlay {
@@ -671,37 +672,92 @@
             text-align: left;
         }
 
-        /*
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr; 
+        /* kontakt-section.css */
+        .kontakt-grid {
+            display: flex;
+            flex-wrap: wrap;
             gap: 40px;
-            align-items: start;
+            align-items: flex-end;
+            justify-content: space-between;
         }
 
-        .about-text h3 {
-            font-size: 1.8em;
-            margin-top: 0;
+        .kontakt-links {
+            flex: 1;
+            min-width: 220px;
         }
 
-        .about-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        }
-
-        .media-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .media-list li {
-            margin-bottom: 10px;
+        .kontakt-mail {
+            color: var(--color-primary, #00707a);
+            text-decoration: underline;
             font-size: 1.1em;
         }
-        */
 
+        .social-icons {
+            display: flex;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .social-icons a {
+            color: var(--color-primary, #00707a);
+            transition: color 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #333;
+        }
+
+        .kontakt-bilder {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+            justify-content: flex-end;
+            min-width: 220px;
+        }
+
+        .pressebild-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .kontakt-bilder .pressebild-block:nth-child(1) {
+            align-items: center;
+            justify-content: end;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .kontakt-bilder img {
+            max-width: 500px;
+            max-height: 500px;
+            height: auto;
+            width: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: block;
+            object-fit: contain;
+        }
+
+        @media (max-width: 900px) {
+            .kontakt-grid {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 24px;
+            }
+            .kontakt-bilder {
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: center;
+            }
+            .kontakt-bilder img {
+                max-width: 90vw;
+                max-width: 300px;
+                width: 100%;
+                height: auto;
+                display: block;
+                object-fit: contain;
+            }
+        }
         /* Footer */
         footer {
             background-color: #333;
