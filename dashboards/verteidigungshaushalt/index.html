@@ -1,9 +1,10 @@
+<!-- Verteidigungshaushalt · Stand: 19.07.2026 · source: verteidigung@c4b8abc -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Verteidigungshaushalt bis 2048 — Prüfmodell</title>
-<link rel="stylesheet" href="fonts.local.css">
+<link rel="stylesheet" href="../fonts/fonts.css">
 <style>
-/* DZ Corporate Fonts: ausgelagert -> fonts.local.css (gitignored, proprietär); fehlt die Datei, greift der System-Fallback */
+/* Fonts: Inter + Source Serif 4 (SIL Open Font License), self-hosted in ../fonts/ */
   :root{
     --plane:#ffffff; --surface:#ffffff; --card:#f2f0f0;
     --ink:#000000; --ink-2:#565656; --muted:#7e7e7e;
@@ -14,8 +15,8 @@
     --band:rgba(0,0,0,.04);
     --shadow:0 10px 30px -2px rgba(0,0,0,.15);
     --radius:8px;
-    --sans:'ABC Social',system-ui,-apple-system,"Segoe UI",sans-serif;
-    --serif:'GT Alpina Standard',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,"Segoe UI",sans-serif;
+    --serif:'Source Serif 4',Georgia,serif;
   }
 
   *{box-sizing:border-box}
@@ -380,6 +381,7 @@
   <div class="modelnote">
 <p><b>Modell.</b> Perpetual-Inventory-Verfahren in laufenden Preisen: Kₜ = (1−δ)·(1+π)·Kₜ₋₁ + Iₜ — der Bestand verliert jährlich den Anteil δ und wird zugleich mit der Inflation π neu bewertet. Das Modell basiert auf einem Startwert von 221 Mrd € (Brutto-Wiederbeschaffungswert, Grundlage dafür ist <a href="https://dezernatzukunft.org/publikationen/bedarf-von-700-milliarden-euro">Heinemann et al., 2025</a>); frühere Jahre werden zurückgerechnet, spätere fortgeschrieben. Die ⌀ Nutzungsdauer der Ausrüstung (Default 30 J → δ ≈ 3,3 %) steuert nur den künftigen Ersatzbedarf und ist einstellbar. Bestandskosten als Quote K basierend auf Werten von 2024: Materialerhaltung 3,6 %, Sprit 0,2 %, IT 1,1 % und Wehrforschung 1,9 % (letztere Basis 2027). Betrieb des Bekleidungswesens (FASER-Servicevertrag, Hochlauf bis 2034) ist als eigene Zeile herausgelöst. Die Grundlast 1 Mrd € skaliert mit der Truppenstärke; Flottenbetrieb liegt im Overhead. NATO-Beiträge, Beteiligungen und Liegenschaften zählen nicht als Ausrüstung. Munition wird separat als Kriegsvorrat projiziert und unterscheidet sich nach Szenario: im Finanzplan getrieben von den eingestellten Verpflichtungsermächtigungen (mindestens real konstant gehalten, Plateau real rund 44 Mrd €); im NATO-Szenario wird der Vorrat bis 2035 auf den Bedarf von 52 Mrd € (real 2026) aufgebaut und danach real gehalten. Preise stammen aus Heinemann et al. 2025 und wurden, soweit verfügbar, aktualisiert u. a. auf Basis des <a href="https://www.ifw-kiel.de/publications/kiel-military-procurement-tracker-33232">Kiel Military Procurement Trackers</a> und eigenen Recherchen. Für Titel ohne neue Preisinformation wurde die durchschnittliche Preissteigerung der anderen Titel von 7,43 % angenommen. Über diesen kurzfristigen Boom hinaus liegt die Inflation bei 2,5 %.</p>
 <p><b>Datenbasis.</b> <a href="https://www.bundeshaushalt.de">Bundeshaushalt.de</a>, <a href="https://dezernatzukunft.org/daten/haushaltstracker">Haushaltstracker Dezernat Zukunft</a>, <a href="https://dezernatzukunft.org/publikationen/bedarf-von-700-milliarden-euro">Heinemann et al. 2025</a>, <a href="https://www.ifw-kiel.de/publications/kiel-military-procurement-tracker-33232">Kiel Military Procurement Tracker</a>, BMWE, eigene Berechnungen.</p>
+<p><b>Stand.</b> 19.07.2026 · Version c4b8abc</p>
 </div>
 
   <section class="grid" id="reform">

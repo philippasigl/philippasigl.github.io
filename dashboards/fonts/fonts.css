@@ -1,0 +1,17 @@
+/* Self-hosted open fonts for the dashboards — SIL Open Font License 1.1.
+   Inter (rsms/inter) + Source Serif 4 (adobe-fonts/source-serif), variable weight.
+   License texts: OFL-Inter.txt, OFL-SourceSerif4.txt in this folder. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./inter.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./source-serif-4.woff2') format('woff2');
+}
