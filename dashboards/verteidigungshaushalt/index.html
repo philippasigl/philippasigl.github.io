@@ -1,4 +1,4 @@
-<!-- Verteidigungshaushalt · Stand: 19.07.2026 · source: verteidigung@5c1116e -->
+<!-- Verteidigungshaushalt · Stand: 19.07.2026 · source: verteidigung@189fd81 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Verteidigungshaushalt bis 2048 — Prüfmodell</title>
@@ -146,7 +146,11 @@
   .chead .defn{font-size:11.5px; font-weight:650; white-space:nowrap; color:var(--ink);
     align-self:flex-start; line-height:1.5; text-align:right;
     background:var(--band); border:1px solid var(--ring); border-radius:14px; padding:3px 9px}
-  @media (max-width:640px){ .chead .defn{white-space:normal} }
+  @media (max-width:640px){
+    .chead .defn{white-space:normal}
+    .chead .unit{white-space:normal}                                   /* Fallback: kein Overflow, falls :has() fehlt */
+    .chead:has(.unit){flex-direction:column; align-items:flex-start; gap:2px}  /* Titel oben, Einheit darunter */
+  }
   .csub{font-size:12.5px; color:var(--ink-2); margin:2px 0 6px}
   .card.figbottom{display:flex; flex-direction:column}
   .card.figbottom figure{margin-top:auto}
@@ -272,7 +276,7 @@
   <section class="grid boom-opener" id="hist">
     <div class="card full">
       <div class="chead"><h2>1. Die historische Perspektive</h2><span class="defn">SIPRI-Abgrenzung, nah NATO-Quote</span></div>
-      <p class="csub" style="max-width:none">Im historischen Vergleich werden die deutschen Verteidigungsausgaben in den kommenden Jahren ungewöhnlich stark ansteigen. Bis 2030 ist eine Erhöhung um 2,2 bis 2,9&nbsp;Prozentpunkte gegenüber dem Niveau von 2022 geplant, mehr als in vier der fünf großen Aufrüstungen der Nachkriegszeit. Auf solche Booms folgten bislang stets deutliche Rückgänge: nicht abrupt, aber ausnahmslos. In allen fünf Episoden waren drei Viertel des Anstiegs nach 5 bis 16&nbsp;Jahren wieder abgebaut (siehe Chart „Boom-Bust-Muster“).</p>
+      <p class="csub" style="max-width:none">Im historischen Vergleich werden die deutschen Verteidigungsausgaben in den kommenden Jahren ungewöhnlich stark ansteigen. Bis 2030 ist eine Erhöhung um 2,3 bis 2,9&nbsp;Prozentpunkte gegenüber dem Niveau von 2022 geplant, mehr als in vier der fünf großen Aufrüstungen der Nachkriegszeit. Auf solche Booms folgten bislang stets deutliche Rückgänge: nicht abrupt, aber ausnahmslos. In allen fünf Episoden waren drei Viertel des Anstiegs nach 5 bis 16&nbsp;Jahren wieder abgebaut (siehe Chart „Boom-Bust-Muster“).</p>
       <p class="csub" style="max-width:none"><b>Wichtig:</b> Um die Vergleichbarkeit mit anderen Ländern zu wahren, wird hier nach der <a href="https://www.sipri.org/databases/milex/sources-and-methods" target="_blank" rel="noopener">SIPRI-Abgrenzung</a> gemessen. Diese umfasst deutlich mehr als die Verteidigungsausgaben des Bundes, zum Beispiel militärische Hilfen an die Ukraine. Sie ist eine Annäherung an die NATO-Quote, wobei die NATO-Zahlen meist noch etwas höher liegen.
 
 Von 2023 bis 2025 lagen zwischen 11&nbsp;% und 28&nbsp;% der SIPRI-Ausgaben außerhalb des Verteidigungsetats. Für die Jahre 2026 bis 2030, deren geplante Verteidigungsausgaben bereits feststehen, wird deshalb ein Band ausgewiesen. Seine untere Grenze entspricht den Ausgaben des deutschen Finanzplans, die obere Grenze dem Finanzplan zuzüglich der fortgeschriebenen Differenz zwischen SIPRI-Zahlen und Finanzplan der Vorjahre (im Schnitt 19&nbsp;% zwischen 2023 und 2025). Deutschland dürfte die 3,5&nbsp;%-Zielmarke deutlich überschreiten.</p>
@@ -391,7 +395,7 @@ Von 2023 bis 2025 lagen zwischen 11&nbsp;% und 28&nbsp;% der SIPRI-Ausgaben auß
 
   <div class="modelnote">
 <p><b>Daten:</b> <a href="https://www.bundeshaushalt.de">Bundeshaushalt.de</a>, <a href="https://dezernatzukunft.org/daten/haushaltstracker">Haushaltstracker Dezernat Zukunft</a>, <a href="https://dezernatzukunft.org/publikationen/bedarf-von-700-milliarden-euro">Heinemann et al., 2025</a>, <a href="https://www.ifw-kiel.de/publications/kiel-military-procurement-tracker-33232">Kiel Military Procurement Tracker</a>, BMWE, eigene Berechnungen.</p>
-<p><b>Stand.</b> 19.07.2026 · Version 5c1116e</p>
+<p><b>Stand.</b> 19.07.2026 · Version 189fd81</p>
 </div>
 
   <section class="grid" id="reform">
