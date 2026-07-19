@@ -1,4 +1,4 @@
-<!-- Verteidigungshaushalt · Stand: 19.07.2026 · source: verteidigung@7ed852d -->
+<!-- Verteidigungshaushalt · Stand: 19.07.2026 · source: verteidigung@72f92ff -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Verteidigungshaushalt bis 2048 — Prüfmodell</title>
@@ -254,7 +254,6 @@
       <p class="eyebrow">Verteidigungshaushalt</p>
       <h1>Bleiben die deutschen Verteidigungsausgaben bei 3,5&nbsp;%?</h1>
       <p class="standfirst">Deutschland erhöht seine Verteidigungsausgaben auf 3,5&nbsp;% des BIP. Bleibt es dabei? Dieses Dashboard geht der Frage in drei Schritten nach: was die Geschichte über solche Aufrüstungen sagt, wie sich die Ausgaben gemäß Finanzplan und NATO-Fähigkeitszielen mittelfristig entwickeln und wie die Bereichsausnahme wieder unter die Schuldenbremse gebracht werden könnte.</p>
-      <p class="standnote">Gemessen wird die Höhe der Verteidigungsausgaben hier als Summe aus Sondervermögen Bundeswehr (SV&nbsp;Bw) und Bereichsausnahme Verteidigung, bzw. vor 2025 als Summe aus SV&nbsp;Bw und EP&nbsp;14 im Verhältnis zur Wirtschaftsleistung des aktuellen Jahres. Für die Berechnung der Bereichsausnahme nutzt der Bund die Wirtschaftsleistung des vorletzten Jahres. Die angegebene Zahl entspricht nicht notwendigerweise der NATO-Quote.</p>
       <nav class="dashnav" aria-label="Abschnitte des Dashboards">
         <a href="#hist"><b>1 · Historische Perspektive</b><span>Hielt 3,5&nbsp;% je dauerhaft?</span></a>
         <a href="#modell"><b>2 · Modellierung der Ausgaben</b><span>Was kosten die zwei Szenarien?</span></a>
@@ -265,9 +264,11 @@
 
   <section class="grid boom-opener" id="hist">
     <div class="card full">
-      <div class="chead"><h2>1. Die historische Perspektive</h2><span class="defn">SIPRI-Abgrenzung, breite Definition von Verteidigungsausgaben</span></div>
+      <div class="chead"><h2>1. Die historische Perspektive</h2><span class="defn">SIPRI-Abgrenzung, nah NATO-Quote</span></div>
       <p class="csub" style="max-width:none">Im historischen Vergleich werden die deutschen Verteidigungsausgaben in den kommenden Jahren ungewöhnlich stark ansteigen. Bis 2030 ist eine Erhöhung um 2,2 bis 2,9&nbsp;Prozentpunkte gegenüber dem Niveau von 2022 geplant, mehr als in vier der fünf großen Aufrüstungen der Nachkriegszeit. Auf solche Booms folgten bislang stets deutliche Rückgänge: nicht abrupt, aber ausnahmslos. In allen fünf Episoden waren drei Viertel des Anstiegs nach 5 bis 16&nbsp;Jahren wieder abgebaut (siehe Chart „Boom-Bust-Muster“).</p>
-      <p class="csub" style="max-width:none"><b>Wichtig:</b> Um die Vergleichbarkeit mit anderen Ländern zu wahren, wird hier nach der SIPRI-Abgrenzung gemessen (<a href="https://www.sipri.org/databases/milex/sources-and-methods" target="_blank" rel="noopener">Quelle</a>). Diese umfasst deutlich mehr als die Verteidigungsausgaben des Bundes – etwa militärische Hilfen an die Ukraine. Wie SIPRI im Einzelnen abgrenzt, lässt sich nicht exakt rekonstruieren: 2023 bis 2025 lagen zwischen 11&nbsp;% und 28&nbsp;% der SIPRI-Ausgaben außerhalb des Verteidigungsetats. Für die Jahre 2026 bis 2030, deren geplante Verteidigungsausgaben bereits feststehen, wird deshalb ein Band ausgewiesen. Seine untere Grenze entspricht den Ausgaben des deutschen Finanzplans, die obere Grenze dem Finanzplan zuzüglich der fortgeschriebenen Differenz zwischen SIPRI-Zahlen und Finanzplan der Vorjahre (im Schnitt 19&nbsp;% zwischen 2023 und 2025).</p>
+      <p class="csub" style="max-width:none"><b>Wichtig:</b> Um die Vergleichbarkeit mit anderen Ländern zu wahren, wird hier nach der <a href="https://www.sipri.org/databases/milex/sources-and-methods" target="_blank" rel="noopener">SIPRI-Abgrenzung</a> gemessen. Diese umfasst deutlich mehr als die Verteidigungsausgaben des Bundes, zum Beispiel militärische Hilfen an die Ukraine. Sie ist eine Annährung an die NATO-Quote, wobei die NATO-Zahlen meist noch etwas höher liegen.
+
+Von 2023 bis 2025 lagen zwischen 11&nbsp;% und 28&nbsp;% der SIPRI-Ausgaben außerhalb des Verteidigungsetats. Für die Jahre 2026 bis 2030, deren geplante Verteidigungsausgaben bereits feststehen, wird deshalb ein Band ausgewiesen. Seine untere Grenze entspricht den Ausgaben des deutschen Finanzplans, die obere Grenze dem Finanzplan zuzüglich der fortgeschriebenen Differenz zwischen SIPRI-Zahlen und Finanzplan der Vorjahre (im Schnitt 19&nbsp;% zwischen 2023 und 2025). Deutschland dürfte die 3,5&nbsp;%-Zielmarke deutlich überschreiten.</p>
       <div class="ctxtoggle" role="group" aria-label="Ansicht wählen">
         <button class="stog active" data-view="lang">Langfrist 1949–2030</button>
         <button class="stog" data-view="boom">Boom-Bust-Muster</button>
@@ -282,9 +283,14 @@
 
   <section class="grid" id="modell">
     <div class="card full">
-      <div class="chead"><h2>2. Modellierung der zukünftigen Verteidigungsausgaben</h2><span class="defn">Verteidigungsausgaben: EP14 + SV Bw bis 2024, dann Bereichsausnahme + SV Bw</span></div>
-      <p class="csub" style="font-size:14px; max-width:none">Die sehr schnell ansteigenden und hohen Verteidigungsausgaben sollen jahrzehntelangen Fähigkeitenabbau kompensieren und die Bundeswehr wieder voll ausstatten. Würden die Verteidigungsausgaben auf dem gleichen Niveau fortgeführt, wäre das Ergebnis ein immer weiter wachsender Kapitalstock. Die Modellierung beantwortet die Frage, wie sich die Verteidigungsausgaben mittelfristig entwickeln würden, wenn <b>(1)</b> der Kapitalstock erhalten werden soll, zu dessen Erwerb man sich bereits verpflichtet hat, oder <b>(2)</b> die Nettoinvestitionen anhalten, bis die NATO-Fähigkeitsziele erreicht sind.</p>
-      <p class="csub" style="font-size:14px; max-width:none">Zentrales Ergebnis: <b>Der hohe Aufbau sollte in Friedenszeiten nur vorübergehend nötig sein.</b> Die NATO-Fähigkeitsziele dürften laut Modell bald erreicht sein, und die aufgebauten Fähigkeiten ließen sich danach auch bei deutlich geringeren Ausgaben halten; in beiden Szenarien fällt der Ausgaben&shy;anteil (nun definiert als Verteidigungsausgaben im engeren Sinn im Verhältnis zum BIP, nicht nach SIPRI!) langfristig auf gut 2,2&nbsp;% (Finanzplan) bzw. rund 2,5&nbsp;% (NATO-Bedarf). Die Ausgaben bereits direkt nach Ende des Finanzplans abzusenken würde jedoch nicht reichen, um die NATO-Fähigkeitsziele zu erreichen: Der Kapitalstock des Finanzplans bliebe in diesem Fall deutlich unter dem NATO-Mindestbedarf. <br><br><b>Disclaimer:</b> Die Ergebnisse hängen stark von Annahmen zu Preisen und Wertentwicklung ab. Sie sollten als Größenordnungen verstanden werden, nicht als Punktschätzungen.</p>
+      <div class="chead"><h2>2. Modellierung der zukünftigen Verteidigungsausgaben</h2><span class="defn">Bis 2024: EP14 + SV Bw
+Ab 2025: Bereichsausnahme + SV Bw</span></div>
+      <p class="csub" style="font-size:14px; max-width:none">Die sehr schnell ansteigenden und hohen Verteidigungsausgaben sollen jahrzehntelangen Fähigkeitenabbau kompensieren und ermöglichen, die Bundeswehr wieder voll auszustatten. Würden die Verteidigungsausgaben auf dem gleichen Niveau fortgeführt, wäre das Ergebnis ein immer weiter wachsender Kapitalstock. Die Modellierung beantwortet die Frage, wie sich die Verteidigungsausgaben mittelfristig entwickeln würden, wenn <b>(1)</b> der Kapitalstock erhalten werden soll, zu dessen Erwerb man sich bereits verpflichtet hat, oder <b>(2)</b> die Nettoinvestitionen anhalten, bis die NATO-Fähigkeitsziele erreicht sind. 
+
+<br><br><b>Wichtig:</b> Die Modellierung stützt sich nicht auf die SIPRI-Definition, sondern Haushaltszahlen. Bis 2024 sind die Verteidigungsausgaben als Einzelplan 14 und Sondervermögen Bundeswehr definiert, ab 2025 als Ausgaben der Bereichsausnahme für Verteidigung und Sondervermögen Bundeswehr. </p>
+      <p class="csub" style="font-size:14px; max-width:none">Zentrales Ergebnis: <b>Der hohe Aufbau sollte in Friedenszeiten nur vorübergehend nötig sein.</b> Die NATO-Fähigkeitsziele dürften laut Modell bald erreicht sein und die aufgebauten Fähigkeiten ließen sich danach auch bei deutlich geringeren Ausgaben halten; in beiden Szenarien fällt der Ausgaben&shy;anteil langfristig auf gut 2,2&nbsp;% (Finanzplan) bzw. rund 2,5&nbsp;% (NATO-Bedarf). Die Ausgaben bereits direkt nach Ende des Finanzplans abzusenken würde jedoch nicht reichen, um die NATO-Fähigkeitsziele zu erreichen: Der Kapitalstock des Finanzplans bliebe in diesem Fall deutlich unter dem NATO-Mindestbedarf.
+
+<br><br><b>Disclaimer:</b> Die Ergebnisse hängen stark von Annahmen zu Preisen und Wertentwicklung ab. Sie sollten als Größenordnungen verstanden werden, nicht als Punktschätzungen.</p>
     </div>
   </section>
 
@@ -345,7 +351,7 @@
 
     <div class="card figbottom">
       <div class="chead">
-        <h2>Verteidigungsausgaben</h2>
+        <h2>Verteidigungsausgaben im Vergleich</h2>
         <span class="unit">% des BIP</span>
       </div>
       <p class="csub">Beide Szenarien im Verhältnis zum BIP. Bis 2030 identisch; danach hält „Finanzplan“ nur noch den Bestand (Anteil fällt zurück), während „NATO-Bedarf“ bis zur Vollausstattung weiter aufbaut.</p>
@@ -359,7 +365,9 @@
         <div class="method"><b style="color:var(--haupt)">Finanzplan.</b> Bis 2030 folgen die Ausgaben dem Finanzplan. Ab 2031 wird der aufgebaute Kapitalstock nur noch erhalten: Er wird um die Inflation fortgeschrieben und entsprechend der festgelegten Nutzungsdauer abgeschrieben. Weil der Aufbau damit endet, bleibt der Bestand unter dem NATO-Mindestbedarf. Grundlage der Projektion für die einzelnen Bereiche sind die Haushaltszahlen, die bereits beschlossenen Verpflichtungsermächtigungen und der Finanzplan.</div>
         <div class="method"><b style="color:var(--moelling)">NATO-Bedarf.</b> Dieses Szenario orientiert sich an der NATO-Planung. Der Kapitalstock wird so lange aufgebaut, bis er das Niveau erreicht, das zur Erfüllung der NATO-Fähigkeitsziele voraussichtlich nötig ist. Grundlage der Schätzung ist <a href="https://dezernatzukunft.org/publikationen/bedarf-von-700-milliarden-euro">Heinemann et al. (2025)</a>. Ist der angestrebte Kapitalstock im NATO-Szenario erreicht, wird sein realer Wert konstant gehalten. Der höhere Kapitalstock im NATO-Szenario zieht höhere laufende Ausgaben nach sich.</div>
       </div>
-      <div class="method method-wide"><b>In beiden Szenarien gleich:</b> Truppe und militärischer Bau skalieren mit dem Truppenaufwuchs (182k → 260k bis 2035); Versorgung wächst mit Inflation + 1&nbsp;% real (Demografie); Overhead wird gleich projiziert; Bekleidung/pers. Ausrüstung als Pro-Kopf-Grundlast plus Auslaufen des FASER-Hochlaufs. Die Inflation wird pauschal mit 2,5&nbsp;% angesetzt (Rüstungsgüter aktuell ausgenommen, siehe Anmerkungen zum Modell).<br><br><b>Unterschiedlich:</b> Ausrüstungsinvestitionen und Kapitalstock. Die Bestandskosten (Materialerhaltung, Kraftstoff, IT, Wehrforschung) hängen am jeweiligen Kapitalstock und wachsen daher im NATO-Szenario stärker. Auch die Munition unterscheidet sich: im Finanzplan bleibt der Kriegsvorrat VE-getrieben bei real rund 44 Mrd €, im NATO-Szenario wird er bis 2035 auf 52 Mrd € aufgebaut und dann real gehalten.</div>
+      <div class="method method-wide"><b>In beiden Szenarien gleich:</b> Truppe und militärischer Bau skalieren mit dem Truppenaufwuchs (von 182.000 auf 260.000 bis 2035); Versorgung wächst mit der Inflation + 1&nbsp;% real (Demografie); Overhead wächst mit der Inflation; die Projektion der Ausgaben für Bekleidung/pers. Ausrüstung berücksichtigt das FASER (Feld Ausstattung Soldat, Erweiterte Reserve), ein großes einmaliges Beschaffungsprogramm und wird dann in Abhängigkeit von der Truppengröße fortgeschrieben. Die Inflation wird pauschal mit 2,5&nbsp;% angesetzt. Die Preise von Rüstungsgütern wurden im Vergleich zu Heinemann et al. mit Daten des <a href="https://www.ifw-kiel.de/publications/kiel-military-procurement-tracker-33232">Kiel Military Procurement Trackers</a> und auf Basis eigener Recherchen aktualisiert.
+
+<br><br><b>Unterschiedlich:</b> Ausrüstungsinvestitionen und Kapitalstock; die Bestandskosten (Materialerhaltung, Kraftstoff, IT, Wehrforschung) hängen am jeweiligen Kapitalstock und wachsen daher im NATO-Szenario stärker; die Ausgaben für Munition richten sich im „Finanzplan“-Szenario nach bereits beschlossenen Verpflichtungsermächtigungen (die wie historisch zu 58&nbsp;% in Anspruch genommen werden). Im NATO-Szenario wird der Munitionsvorrat aufgebaut, bis die von Heinemann et al. definierten Ziele erreicht sind.</div>
     </div>
 
 
@@ -379,9 +387,8 @@
 
 
   <div class="modelnote">
-<p><b>Modell.</b> Perpetual-Inventory-Verfahren in laufenden Preisen: Kₜ = (1−δ)·(1+π)·Kₜ₋₁ + Iₜ — der Bestand verliert jährlich den Anteil δ und wird zugleich mit der Inflation π neu bewertet. Das Modell basiert auf einem Startwert von 221 Mrd € (Brutto-Wiederbeschaffungswert, Grundlage dafür ist <a href="https://dezernatzukunft.org/publikationen/bedarf-von-700-milliarden-euro">Heinemann et al., 2025</a>); frühere Jahre werden zurückgerechnet, spätere fortgeschrieben. Die ⌀ Nutzungsdauer der Ausrüstung (Default 30 J → δ ≈ 3,3 %) steuert nur den künftigen Ersatzbedarf und ist einstellbar. Bestandskosten als Quote K basierend auf Werten von 2024: Materialerhaltung 3,6 %, Kraftstoff 0,2 %, IT 1,1 % und Wehrforschung 1,9 % (letztere Basis 2027). Betrieb des Bekleidungswesens (FASER-Servicevertrag, Hochlauf bis 2034) ist als eigene Zeile herausgelöst. Die Grundlast 1 Mrd € skaliert mit der Truppenstärke; Flottenbetrieb liegt im Overhead. NATO-Beiträge, Beteiligungen und Liegenschaften zählen nicht als Ausrüstung. Munition wird separat als Kriegsvorrat projiziert und unterscheidet sich nach Szenario: im Finanzplan getrieben von den eingestellten Verpflichtungsermächtigungen (mindestens real konstant gehalten, Plateau real rund 44 Mrd €); im NATO-Szenario wird der Vorrat bis 2035 auf den Bedarf von 52 Mrd € (real 2026) aufgebaut und danach real gehalten. Preise stammen aus Heinemann et al. 2025 und wurden, soweit verfügbar, aktualisiert u. a. auf Basis des <a href="https://www.ifw-kiel.de/publications/kiel-military-procurement-tracker-33232">Kiel Military Procurement Trackers</a> und eigenen Recherchen. Für Titel ohne neue Preisinformation wurde die durchschnittliche Preissteigerung der anderen Titel von 7,43 % angenommen. Über diesen kurzfristigen Boom hinaus liegt die Inflation bei 2,5 %.</p>
-<p><b>Datenbasis.</b> <a href="https://www.bundeshaushalt.de">Bundeshaushalt.de</a>, <a href="https://dezernatzukunft.org/daten/haushaltstracker">Haushaltstracker Dezernat Zukunft</a>, <a href="https://dezernatzukunft.org/publikationen/bedarf-von-700-milliarden-euro">Heinemann et al. 2025</a>, <a href="https://www.ifw-kiel.de/publications/kiel-military-procurement-tracker-33232">Kiel Military Procurement Tracker</a>, BMWE, eigene Berechnungen.</p>
-<p><b>Stand.</b> 19.07.2026 · Version 7ed852d</p>
+<p><b>Daten:</b> <a href="https://www.bundeshaushalt.de">Bundeshaushalt.de</a>, <a href="https://dezernatzukunft.org/daten/haushaltstracker">Haushaltstracker Dezernat Zukunft</a>, <a href="https://dezernatzukunft.org/publikationen/bedarf-von-700-milliarden-euro">Heinemann et al., 2025</a>, <a href="https://www.ifw-kiel.de/publications/kiel-military-procurement-tracker-33232">Kiel Military Procurement Tracker</a>, BMWE, eigene Berechnungen.</p>
+<p><b>Stand.</b> 19.07.2026 · Version 72f92ff</p>
 </div>
 
   <section class="grid" id="reform">
@@ -412,7 +419,7 @@
   <section class="grid" id="schuldenbremse">
     <div class="card full">
       <div class="chead">
-        <h2>Verteidigungsausgaben in % des BIP — Abbaupfad Schuldenbremse</h2>
+        <h2>Verteidigungsausgaben in % des BIP und Abbaupfad Schuldenbremse</h2>
         <span class="unit">Modellpfad vs. Abbaupfad</span>
       </div>
       <p class="csub" style="max-width:none">Ob der Bund eine Schuldenbremse einhalten kann, die jährlich bestimmten Abbauschritten folgt, hängt von vielen Unwägbarkeiten ab. Der Abbaupfad setzt am Höchststand an und reduziert das zulässige Defizit jährlich um den eingestellten Abbauschritt bis auf die 1-%-Schwelle der Bereichsausnahme.</p>
@@ -526,7 +533,7 @@ function computeModel(L, bipReal, veQuote){
         const ersatz=(1/S.LMUN)*(1+S.INFL)*MStk[i-1];
         Mun[i]=Math.max(VEfM[i]||0, ersatz);   // keine Fortschreibung der Vergangenheit mehr
         MStk[i]=carry+Mun[i]; }
-      NMH[i]= y<=2030 ? H.NMH_hist[ISTI]*CFG[i] : 0;   // Nicht-mil/Dual-Use ab 2028 fortschreiben (nicht in Ausr.-Inv falten)
+      NMH[i]=0;   // Nicht-mil/Dual-Use ab 2028 = 0 (im Investitions-Residual aufgegangen) — wie Excel
       const ops=Truppe[i]+Vers[i]+Ovh[i]+Sonst[i]+Bau[i]+Bekl[i]+MAT[i]+Sprit[i]+IT[i]+Fue[i]+Mun[i];
       if(y<=2030) II[i]=H.Topline[i]-ops-NMH[i];
       else II[i]=Math.max(d*(1+S.INFL)*K[i-1], VEf[i]||0);   // ab 2031 nur Ersatz bzw. VE-fällig (kein Abschmelzen)
@@ -536,14 +543,14 @@ function computeModel(L, bipReal, veQuote){
   const TOT=YEARS.map((y,i)=> (y<=2030 && H.Topline[i]!=null) ? H.Topline[i] : Truppe[i]+Vers[i]+Ovh[i]+Sonst[i]+Bau[i]+Bekl[i]+MAT[i]+Sprit[i]+IT[i]+Fue[i]+Mun[i]+II[i]+NMH[i]);
   const MOLK=S.MOELG*Math.pow(1+S.INFL,2)+S.KSTAR;    // K* = Kapitalstock 2024 ·(1+π)² (auf 2026) + Investitionslücke 2026
   // NATO-Munitions-Kriegsvorrat: eigener Zielpfad — real 2026 linear auf MUNSTAR bis MUNYR, danach real halten.
-  const MUNSTAR=52, MUNYR=2035, i2030=YEARS.indexOf(2030);
+  const MUNSTAR=51.6, MUNYR=2034, i2030=YEARS.indexOf(2030);
   const munReal2030=MStk[i2030]/Math.pow(1+S.INFL,2030-2026);   // Finanzplan-Vorrat 2030 real ≈ 43,6 als Ramp-Start
   const Km=Array(N),MATm=Array(N),Spritm=Array(N),ITm=Array(N),Fuem=Array(N),Munm=Array(N),MStkm=Array(N),IIm=Array(N);
   for(let i=0;i<N;i++){ const y=YEARS[i];
     if(y<=2027){ Km[i]=K[i];MATm[i]=MAT[i];Spritm[i]=Sprit[i];ITm[i]=IT[i];Fuem[i]=Fue[i];Munm[i]=Mun[i];MStkm[i]=MStk[i];IIm[i]=II[i]; }
     else {
       MATm[i]=mstar*Km[i-1];Spritm[i]=sstar*Km[i-1];ITm[i]=itstar*Km[i-1];Fuem[i]=festar*Km[i-1];
-      // NATO-Munition: bis 2030 = Finanzplan; ab 2031 Kriegsvorrat real auf MUNSTAR (bis 2035) hochfahren, danach real halten.
+      // NATO-Munition: bis 2030 = Finanzplan; ab 2031 Kriegsvorrat real auf MUNSTAR (bis 2034) hochfahren, danach real halten.
       if(y<=2030){ Munm[i]=Mun[i]; MStkm[i]=MStk[i]; }
       else {
         const wReal= y>=MUNYR ? MUNSTAR : munReal2030+(MUNSTAR-munReal2030)*(y-2030)/(MUNYR-2030);
@@ -596,9 +603,9 @@ function niceTicks(min,max,count){
 /* ---------- KPIs ---------- */
 function renderKPIs(){
   // Kennzahlen real, 2026-Preise, inkl. Munition. Der Munitionsbedarf ist eine separate
-  // Schätzung (Mölling-Plan rebasiert); Finanzplan VE-getrieben (~44), NATO baut bis 2035 auf 52.
+  // Schätzung (Mölling-Plan rebasiert); Finanzplan VE-getrieben (~44), NATO baut bis 2034 auf 51,6.
   const i27=YEARS.indexOf(2027), i26=YEARS.indexOf(2026);
-  const munStar    = 52;                    // = MUNSTAR: NATO-Munitionsziel real 2026, bis 2035 erreicht
+  const munStar    = 51.6;                  // = MUNSTAR: NATO-Munitionsziel real 2026 (Heinemann), bis 2034 erreicht
   const kEquipStar = DATA.MOLK;             // K* Ausrüstung real 2026
   const kEquip2026 = DATA.K_H[i26];         // realer Ausrüstungsbestand Ende 2026 (Basisjahr)
   const munNow     = DATA.MStk_H[i26];      // Munitionsvorrat Ende 2026 (Basisjahr, nominal = real)
