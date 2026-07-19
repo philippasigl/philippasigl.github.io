@@ -1,4 +1,4 @@
-<!-- Verteidigungshaushalt · Stand: 19.07.2026 · source: verteidigung@72f92ff -->
+<!-- Verteidigungshaushalt · Stand: 19.07.2026 · source: verteidigung@ff2d0d1 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Verteidigungshaushalt bis 2048 — Prüfmodell</title>
@@ -132,7 +132,8 @@
   #schuldenbremse{margin-top:16px}
   .card{background:var(--card); border:1px solid var(--ring); border-radius:var(--radius); padding:18px 18px 12px; box-shadow:var(--shadow)}
   .card.full{grid-column:1 / -1}
-  @media (max-width:820px){.grid{grid-template-columns:1fr} .card.half{grid-column:1 / -1}}
+  .stock-cols{display:grid; grid-template-columns:1fr minmax(240px,320px); gap:28px; align-items:center; margin-top:6px}
+  @media (max-width:820px){.grid{grid-template-columns:1fr} .card.half{grid-column:1 / -1} .stock-cols{grid-template-columns:1fr; gap:12px}}
   .chead{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:2px}
   .chead h2{font-family:var(--serif); font-size:17px; font-weight:700; letter-spacing:0; margin:0}
   .chead .unit{font-size:12px; color:var(--muted); font-weight:550; white-space:nowrap}
@@ -222,6 +223,9 @@
   footer b{color:var(--ink-2); font-weight:600}
   .modelnote a{color:var(--ink-2)}
   .csub a{color:var(--ink-2)}
+  /* Einheitliche Link-Farbe für alle Fliesstext-Links — Autor-Regel schlaegt den Browser-:visited-Default (lila). Navigation behaelt ihre eigene. */
+  a{color:var(--ink-2)}
+  .dashnav a{color:inherit}
   @media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
 
 :root{ --d-truppe:#81548d; --d-vers:#b79fc7; --d-ovh:#9aa0a6; --d-fue:#6e7f94; --d-bau:#a58b73; --d-mat:#478469; --d-bekl:#c99a2e; --d-sprit:#8fb996; --d-it:#6b8fd6; --d-mun:#dc758a; --d-inv:#e8a04c; --d-sonst:#dabdae; }
@@ -284,7 +288,7 @@ Von 2023 bis 2025 lagen zwischen 11&nbsp;% und 28&nbsp;% der SIPRI-Ausgaben auß
   <section class="grid" id="modell">
     <div class="card full">
       <div class="chead"><h2>2. Modellierung der zukünftigen Verteidigungsausgaben</h2><span class="defn">Bis 2024: EP14 + SV Bw
-Ab 2025: Bereichsausnahme + SV Bw</span></div>
+<br><br>Ab 2025: Bereichsausnahme + SV Bw</span></div>
       <p class="csub" style="font-size:14px; max-width:none">Die sehr schnell ansteigenden und hohen Verteidigungsausgaben sollen jahrzehntelangen Fähigkeitenabbau kompensieren und ermöglichen, die Bundeswehr wieder voll auszustatten. Würden die Verteidigungsausgaben auf dem gleichen Niveau fortgeführt, wäre das Ergebnis ein immer weiter wachsender Kapitalstock. Die Modellierung beantwortet die Frage, wie sich die Verteidigungsausgaben mittelfristig entwickeln würden, wenn <b>(1)</b> der Kapitalstock erhalten werden soll, zu dessen Erwerb man sich bereits verpflichtet hat, oder <b>(2)</b> die Nettoinvestitionen anhalten, bis die NATO-Fähigkeitsziele erreicht sind. 
 
 <br><br><b>Wichtig:</b> Die Modellierung stützt sich nicht auf die SIPRI-Definition, sondern Haushaltszahlen. Bis 2024 sind die Verteidigungsausgaben als Einzelplan 14 und Sondervermögen Bundeswehr definiert, ab 2025 als Ausgaben der Bereichsausnahme für Verteidigung und Sondervermögen Bundeswehr. </p>
@@ -371,24 +375,20 @@ Ab 2025: Bereichsausnahme + SV Bw</span></div>
     </div>
 
 
-    <!-- Ausrüstungsinvestition + Kapitalstock -->
-    <div class="card figbottom">
-      <div class="chead"><h2>Ausrüstungsinvestition</h2><span class="unit">Mrd €/Jahr</span></div>
-      <p class="csub">Jährliche Neubeschaffung. Der Aufbau-Peak um 2030 fällt danach auf den reinen Ersatzbedarf (δ·K) zurück; im NATO-Szenario halten die Nettoinvestitionen länger an.</p>
-      <figure><div id="chart-inv"></div></figure>
-    </div>
-
-    <div class="card figbottom">
-      <div class="chead"><h2>Militärischer Kapitalstock</h2><span class="unit">Mrd €, Brutto-Wiederbeschaffungswert</span></div>
-      <p class="csub">Der aufgebaute Bestand an Ausrüstung in Mrd&nbsp;€. Ab 2031 flacht „Finanzplan“ auf dem Erhaltniveau ab (nur noch Ersatzbedarf δ·K), während „NATO-Bedarf“ bis zur Vollausstattung weiterläuft.</p>
-      <figure><div id="chart-stock"></div></figure>
+    <!-- Militärischer Kapitalstock inkl. Munition (real 2026) — volle Breite, Chart links / Text rechts -->
+    <div class="card full">
+      <div class="chead"><h2>Militärischer Kapitalstock</h2><span class="unit">Mrd € (real 2026), inkl. Munition</span></div>
+      <div class="stock-cols">
+        <figure><div id="chart-stock"></div></figure>
+        <p class="csub">Bestand an Ausrüstung und Munition, real in Preisen von 2026. Bis 2030 verlaufen beide Szenarien gleich; die NATO-Ziel-Linie (679&nbsp;Mrd&nbsp;€) markiert die Vollausstattung. Danach baut nur „NATO-Bedarf“ weiter auf, während „Finanzplan“ auf dem Erhaltniveau abflacht (nur noch Ersatzbedarf δ·K). Die schattierte Fläche ist der Fehlbetrag des Finanzplans zur Vollausstattung (rund 143&nbsp;Mrd&nbsp;€).</p>
+      </div>
     </div>
   </section>
 
 
   <div class="modelnote">
 <p><b>Daten:</b> <a href="https://www.bundeshaushalt.de">Bundeshaushalt.de</a>, <a href="https://dezernatzukunft.org/daten/haushaltstracker">Haushaltstracker Dezernat Zukunft</a>, <a href="https://dezernatzukunft.org/publikationen/bedarf-von-700-milliarden-euro">Heinemann et al., 2025</a>, <a href="https://www.ifw-kiel.de/publications/kiel-military-procurement-tracker-33232">Kiel Military Procurement Tracker</a>, BMWE, eigene Berechnungen.</p>
-<p><b>Stand.</b> 19.07.2026 · Version 72f92ff</p>
+<p><b>Stand.</b> 19.07.2026 · Version ff2d0d1</p>
 </div>
 
   <section class="grid" id="reform">
@@ -654,6 +654,17 @@ function lineChart(mountId, cfg){
 
   // projection band — bis zum SVG-Rand durchziehen (keine sichtbare Kante am Plot-Ende)
   svg.appendChild(el('rect',{x:xIstEnd, y:M.t, width:W-xIstEnd, height:ih, fill:'var(--band)'}));
+
+  // optional: schattierte Fläche ZWISCHEN zwei Kurven (upper/lower), ab Jahr-Index i0.
+  // Zeigt die Lücke zwischen den Szenarien — sichtbar erst, wo sie auseinanderlaufen.
+  if(cfg.shade){ const sh=cfg.shade;
+    let d='';
+    for(let i=sh.i0;i<=N-1;i++){ const v=sh.upper[i]; if(v!=null) d+=(d?'L':'M')+sx(YEARS[i]).toFixed(2)+' '+sy(v).toFixed(2); }
+    for(let i=N-1;i>=sh.i0;i--){ const v=sh.lower[i]; if(v!=null) d+='L'+sx(YEARS[i]).toFixed(2)+' '+sy(v).toFixed(2); }
+    if(d){ d+='Z'; svg.appendChild(el('path',{d, fill:sh.color||'var(--moelling)', 'fill-opacity':sh.opacity||0.12, stroke:'none'})); }
+    if(sh.label){ const li=sh.labi!=null?sh.labi:N-1, mid=(sy(sh.upper[li])+sy(sh.lower[li]))/2;
+      const tl=el('text',{class:'reflab','text-anchor':'end', x:sx(YEARS[li])-6, y:mid, fill:sh.color||'var(--moelling)'}); tl.textContent=sh.label; svg.appendChild(tl); }
+  }
 
   // gridlines + y ticks
   ticks.forEach(t=>{
@@ -947,7 +958,7 @@ function detailLayers(M){
   ];
 }
 function buildAll(){
-  ['chart-stock','chart-inv','chart-schicht','chart-pct','chart-brake'].forEach(id=>{const e=document.getElementById(id); if(e) e.innerHTML='';});
+  ['chart-stock','chart-schicht','chart-pct','chart-brake'].forEach(id=>{const e=document.getElementById(id); if(e) e.innerHTML='';});
 
   // Schichtkuchen (gestapelt) — Szenario + Einheit via Toggle (Default Finanzplan · Mrd €)
   const schichtPct = SCHICHT_UNIT==='pct';
@@ -967,18 +978,23 @@ function buildAll(){
       {name:'NATO', color:cssv('--moelling'), data:PCT_M, labDy:-7},
     ], fmtY:v=>de(v,1)+' %', fmtT:v=>de(v,1)+' %' });
 
-  lineChart('chart-inv',{ mr:88, ml:44,
-    aria:'Ausrüstungsinvestition pro Jahr, beide Szenarien',
-    series:[
-      {name:'Finanzplan', color:cssv('--haupt'), data:DATA.Inv_H, labDy:12},
-      {name:'NATO', color:cssv('--moelling'), data:DATA.Inv_M, labDy:-6},
-    ], fmtY:de0, fmtT:v=>de0(v)+' Mrd €' });
+  // real 2026: jede Serie / (1+π)^(Jahr−2026) — konsistent mit den Top-Kennzahlen (real 2026)
+  const defl = arr => arr.map((v,i)=> v==null?null : v/Math.pow(1+S.INFL, YEARS[i]-2026));
 
+  // Kapitalstock INKL. MUNITION, real 2026 — NATO-Ziel-Linie (678,6) + schattierter Restbedarf (390),
+  // konsistent mit der Top-Kennzahl „Ziel-Kapitalstock inkl. Munition / Lücke".
+  const i30=YEARS.indexOf(2030);
+  const zielStarReal = DATA.MOLK + 51.6;                                             // K* Ausrüstung + Munitionsziel, real 2026
+  const KtotHr = defl(DATA.K_H.map((v,i)=> v==null?null : v+(DATA.MStk_H[i]||0)));   // Finanzplan, real 2026, inkl. Munition
+  const KtotMr = defl(DATA.K_M.map((v,i)=> v==null?null : v+(DATA.MStk_M[i]||0)));   // NATO, real 2026, inkl. Munition
+  const fehlbetrag = KtotMr[N-1]-KtotHr[N-1];                                        // NATO − Finanzplan am Ende = Lücke zwischen den Szenarien
   lineChart('chart-stock',{ tall:true, mr:118,
-    aria:'Kapitalstock 2016 bis 2048, Szenarien Finanzplan und NATO-Bedarf',
+    aria:'Militärischer Kapitalstock inkl. Munition 2016 bis 2048 (real 2026), Szenarien Finanzplan und NATO-Bedarf',
+    refs:[{y:zielStarReal, color:cssv('--moelling'), label:`NATO-Ziel ${de0(zielStarReal)}`}],
+    shade:{upper:KtotMr, lower:KtotHr, opacity:0.12, i0:i30, label:`Fehlbetrag ${de0(fehlbetrag)}`},
     series:[
-      {name:'Finanzplan', color:cssv('--haupt'), data:DATA.K_H, labDy:14},
-      {name:'NATO', color:cssv('--moelling'), data:DATA.K_M, labDy:-8},
+      {name:'Finanzplan', color:cssv('--haupt'), data:KtotHr, labDy:14},
+      {name:'NATO', color:cssv('--moelling'), data:KtotMr, labDy:-8},
     ], fmtY:de0, fmtT:v=>de0(v)+' Mrd €' });
 
   // Abbaupfad Schuldenbremse — Modellpfad(e) vs. geforderter Abbaupfad; Abbaupfad ankert am höheren Peak beider Szenarien
